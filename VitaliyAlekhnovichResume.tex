@@ -1,0 +1,172 @@
+\documentclass[paper=a4,fontsize=11pt]{scrartcl} % KOMA-article class
+							
+\usepackage[english]{babel}
+\usepackage[utf8x]{inputenc}
+\usepackage[protrusion=true,expansion=true]{microtype}
+\usepackage{amsmath,amsfonts,amsthm}     % Math packages
+\usepackage{graphicx}                    % Enable pdflatex
+\usepackage[svgnames]{xcolor}            % Colors by their 'svgnames'
+\usepackage{geometry}
+	\textheight=700px   
+    \geometry{
+     a4paper,
+     total={185mm,275mm},
+     top=15mm,
+    }
+\usepackage{hyperref}
+\usepackage{amssymb}
+\usepackage{enumitem}
+\usepackage{fontawesome} 
+ 
+\setlist{nolistsep}
+ 
+\frenchspacing              % Better looking spacings after periods
+\pagestyle{empty}           % No pagenumbers/headers/footers
+ 
+%%% Custom sectioning (sectsty package)
+%%% ------------------------------------------------------------
+%\usepackage{sectsty}
+ 
+%\sectionfont{%			            % Change font of \section command
+%	\usefont{OT1}{phv}{b}{n}%		% bch-b-n: CharterBT-Bold font
+%	\sectionrule{0pt}{0pt}{-5pt}{3pt}}
+ \renewcommand{\familydefault}{\sfdefault}    
+\usepackage{titlesec}
+ 
+\titleformat{\section}
+  {\normalfont\Large\bfseries}{\thesection}{0em}{}[{\titlerule[.5pt]}]
+  \titlespacing*{\section}{0pt}{12pt}{8pt}
+%%% Macros
+%%% ------------------------------------------------------------
+\newlength{\spacebox}
+\settowidth{\spacebox}{8888888888}			% Box to align text
+\newcommand{\sepspace}{\vspace*{1em}}		% Vertical space macro
+\newcommand{\sepspacee}{\vspace*{.26em}}		% Vertical space macro
+ 
+\newcommand{\MyName}[1]{ % Name
+		\LARGE \usefont{OT1}{phv}{b}{n} \hfill #1
+		\par \normalsize \normalfont}
+		
+\newcommand{\MySlogan}[1]{ % Slogan (optional)
+		{#1}
+		\par \normalsize \normalfont}
+ 
+\newcommand{\NewPart}[1]{\section*{\uppercase{#1}}}
+ 
+\newcommand{\PersonalEntry}[2]{
+		\noindent\hangindent=2em\hangafter=0 % Indentation
+		\parbox{\spacebox}{        % Box to align text
+		\textit{\textbf{#1}}}		       % Entry name (birth, address, etc.)
+		\hspace{1.5em} #2 \par}    % Entry value
+ 
+\renewcommand{\labelitemi}{\tiny$\blacksquare$}
+\newcommand{\SkillsEntry}[2]{      % Same as \PersonalEntry
+		\begin{itemize}
+        	\item \textbf{#1}{#2}
+        \end{itemize}
+        \sepspacee
+}
+%		\noindent\hangindent=1em\hangafter=0 % Indentation
+%		\parbox{3cm}{        % Box to align text
+%		\textit{#1}}			   % Entry name (birth, address, etc.)
+%		 #2 \par}    % Entry value	
+		
+\newcommand{\EducationEntry}[3]{
+		\noindent \textbf{#1} \hfill      % Study
+        {#2}
+        
+		\noindent \textit{#3} \par        % School
+		\normalsize \par}
+
+\newcommand{\GroupWork}[1]{
+		\noindent \textbf{#1} \hfill      % Study
+        \normalsize \par}
+ 
+\newcommand{\WorkEntry}[3]{				  % Same as \EducationEntry
+		\textit{#1} \hfill      % Jobname
+		{#2} \par  % Duration
+		\text{#3} \par              % Company
+		\normalsize \par}
+ 
+%%% Begin Document
+%%% ------------------------------------------------------------
+\begin{document}
+% you can upload a photo and include it here...
+%\begin{wrapfigure}{l}{0.5\textwidth}
+%	\vspace*{-2em}
+%		\includegraphics[width=0.15\textwidth]{photo}
+%\end{wrapfigure}
+ 
+\MyName{Vitaliy Alekhnovich}
+ 
+%%% Personal details
+%%% ------------------------------------------------------------
+\NewPart{Personal details}
+\PersonalEntry{Mail}{\url{vitaliyalekhnovich@gmail.com}}
+\PersonalEntry{Phone}{(617) 798-1020}
+\PersonalEntry{Portfolio}{\href{https://vitoal.com}{vitoal.com}}
+\PersonalEntry{\faGithub Github}{\href{https://github.com/vitaovich}{github.com/vitaovich}}
+\PersonalEntry{\faLinkedinSquare LinkedIn}{\href{https://linkedin.com/in/vitaliy-alekhnovich}{linkedin.com/in/vitaliy-alekhnovich}}
+
+\NewPart{Objective}
+\MySlogan{ Software Engineer with over 6 years of professional experience working on modern software applications. I am seeking a Software Engineer position to expand and utilize my skill set by making use of today's modern development tools and techniques.  }
+
+ 
+%%% Skills
+%%% ------------------------------------------------------------
+\NewPart{Skills}
+ 
+\SkillsEntry{Languages \& Frameworks:}{ C\#, SQL,  Python, JavaScript, React }
+\SkillsEntry{Software Tools:}{ Git, Github Actions, Azure DevOps, Node.js, Docker, Powershell, \LaTeX }
+\SkillsEntry{Development Processes:}{ Agile, Test-Driven Development, Git Branches}
+ 
+%%% Work experience
+%%% ------------------------------------------------------------
+\NewPart{Work experience}
+\GroupWork{Microsoft HoloLens}
+\WorkEntry{Software Engineer 2}{Redmond, WA}{March 2019 - September 2022 } 
+\SkillsEntry{}{Develop and maintain REST API utilized for providing critical feedback to test stations improving quality. }
+\SkillsEntry{}{Develop Manufacturing Engineering System flow designer to handle production line processes using ASP.NET.}
+\SkillsEntry{}{Create production line dashboards showing detailed realtime part quantities assembled throughout each week.}
+\SkillsEntry{}{Develop complex production line data pipelines to handle global supplier data used in BI and data analytics.}
+\SkillsEntry{}{Work on the largest Optics team in the world to provide critical data needed in improving design process.}
+\sepspace
+
+\GroupWork{Microsoft HoloLens - EASi}
+\WorkEntry{Software Development Engineer 2}{Redmond, WA}{May 2018 - March 2019 }
+\SkillsEntry{}{Develop inventory management system in order to increase efficiency for tracking materials and input into SAP.}
+\SkillsEntry{}{Design and implement a ASP.NET Web app warehouse system used in shipping goods across the world.}
+\SkillsEntry{}{Create web, desktop and database applications, using .net framework, C\#, ASP.NET and SQL Server.}
+\SkillsEntry{}{Design and perform analysis on moderately complex programs for tracking critical systems.}
+\sepspace
+
+\GroupWork{Washington State Digital Archives}
+\WorkEntry{Software Engineer}{Cheney, WA}{April 2015 - April 2017 }
+\SkillsEntry{}{Developed for legacy WebCrawler C\# web app and worked on adding onto continuous delivery pipeline.}
+\SkillsEntry{}{Refactored WebCrawler web app back end with a modern RESTFul API.}
+\SkillsEntry{}{Developed features for local Intranet to allow server management and handle internal users.}
+%%% \SkillsEntry{}{Created functional tests for Washington State web apps using Selenium API with a Page Objects design pattern.}
+
+%%% Education
+%%% ------------------------------------------------------------
+\NewPart{Education}
+ 
+\EducationEntry{Bachelor of Science in Computer Science}{Received: June 2017}{Eastern Washington University}
+\sepspace
+ 
+\EducationEntry{Associate Degree}{Received: June 2014}{Columbia Basin College}
+ 
+%%% Skills
+%%% ------------------------------------------------------------
+\NewPart{PROJECTS}
+\SkillsEntry{Save Your Playlists:}{ Web app pulls user info from Spotify and creates playlists for your youtube account. }
+\SkillsEntry{Stu Reports:}{ LAMP stack web app used by students for logging progress on CS Senior Projects at EWU. }
+\SkillsEntry{AWS DynamoDB Connect 5:}{ Online game where two players try to get 5 consecutive spots of Xs or Os.}
+\SkillsEntry{Pinball Machine:}{ Embedded Systems project of using an Arduino to run an old school pinball machine.}
+
+
+\NewPart{Hobbies}
+\SkillsEntry{Activities:}{ longboarding, hiking, snowboarding, guitar, photography.}
+\end{document}
+ 
+ 
